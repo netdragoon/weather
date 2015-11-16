@@ -165,12 +165,12 @@ Ele retornar esse modelo na anotação Javascript:
 
 Também pode utilizado via facade (apelidos) dessa forma:
 
-namespace:
+___namespace:___
 	
 	use Canducci\Weather\Facades\Weather;
 	use Canducci\Weather\ForecastDay;
 
-código:
+___código:___
 
 	Weather::cities('Sao Paulo'); 
 	Weather::forecast(244); //4 datas de previsão (padrão)
