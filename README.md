@@ -198,3 +198,88 @@ resultado:
 	5020 São Paulo de Olivença AM
 	5021 São Paulo do Potengi RN
 
+O `` vai retornar a previsão do tempo conforme foi solicitado:
+
+código:
+
+```PHP	
+$item = Weather::forecast(244, ForecastDay::Day4);    
+
+//Dados da cidades
+echo sprintf('<p>Id: %s</p><p> Cidade: %s</p><p> Uf: %s</p>
+              <p>Data última atualização: %s</p>',
+            $item->getId(), 
+            $item->getCity(), 
+            $item->getUf(), 
+            $item->getUpdated()->format('d/m/Y'));
+
+//Dados da previsões
+foreach ($item->getDates() as $key => $value) 
+{
+    echo sprintf('<p>Data: %s</p><p>IUV: %s</p><p>Minima: %s</p>
+                  <p>Maxima: %s</p><p>Status: %s - %s</p>', 
+        $value->getDate()->format('d/m/Y'),
+        $value->getIuv(), 
+        $value->getMin(),
+        $value->getMax(),
+        $value->getTime()->getSigla(),
+        $value->getTime()->getDescription());
+}
+
+```
+
+resultado:
+
+####Dados da cidades
+	Id: 244
+
+	Cidade: São Paulo
+
+	Uf: SP
+
+	Data última atualização: 16/11/2015
+
+####Dados da previsões
+
+	Data: 17/11/2015
+
+	IUV: 13
+
+	Minima: 16
+
+	Maxima: 26
+
+	Status: ci - Chuvas Isoladas
+
+
+	Data: 18/11/2015
+
+	IUV: 13
+
+	Minima: 20
+
+	Maxima: 29
+
+	Status: pnt - Pancadas de Chuva a Noite
+
+
+	Data: 19/11/2015
+
+	IUV: 13
+
+	Minima: 20
+
+	Maxima: 31
+
+	Status: pt - Pancadas de Chuva a Tarde
+
+
+	Data: 20/11/2015
+
+	IUV: 13
+
+	Minima: 20
+
+	Maxima: 30
+
+	Status: pc - Pancadas de Chuva
