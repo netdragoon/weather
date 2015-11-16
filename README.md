@@ -179,7 +179,7 @@ código:
 
 A `Weather::cities('Sao Paulo')` retorna uma coleção de cidades com o seguinte layout:
 
-código:
+___código:___
 
 ```PHP	
 $items = Weather::cities('Sao Paulo');
@@ -191,16 +191,17 @@ foreach ($items as $key => $value)
             $value->getUf());
 }
 ```
-resultado:
+
+___resultado:___
 
 	244 São Paulo SP
 	5019 São Paulo das Missões RS
 	5020 São Paulo de Olivença AM
 	5021 São Paulo do Potengi RN
 
-O `` vai retornar a previsão do tempo conforme foi solicitado:
+O `Weather::forecast(244, ForecastDay::Day4)` vai retornar a previsão do tempo conforme foi solicitado:
 
-código:
+___código:___
 
 ```PHP	
 $item = Weather::forecast(244, ForecastDay::Day4);    
@@ -228,7 +229,7 @@ foreach ($item->getDates() as $key => $value)
 
 ```
 
-resultado:
+___resultado:___
 
 ####Dados da cidades
 	Id: 244
