@@ -2,7 +2,7 @@
 
 use Canducci\Weather\Contracts\IWeatherClient;
 
-class WeatherClient extends IWeatherClient {
+class WeatherClient implements IWeatherClient {
 
 
 	public function __construct()
