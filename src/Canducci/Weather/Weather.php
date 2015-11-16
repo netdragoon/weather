@@ -18,7 +18,7 @@ class Weather implements IWeather {
 
     public function cities($name)
     {
-        $xml = $this->client->download(str_replace("{0}",$name, self::citiesUrl));
-        var_dump($xml);
+        $xml = $this->client->download(str_replace("{0}",urlencode($name), self::citiesUrl));
+        return new CollectionCities($xml);
     }
 }
