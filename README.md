@@ -37,6 +37,8 @@ Pronto agora é só utilizar na sua aplicação `Laravel 5.*`.
 
 ####Buscas de Cidades:
 
+Utilizando a função `cities` para trazer as cidades mediante a informação pela sua descrição:
+
 ```PHP
 $items = cities('Sao Paulo');
 return $items->getJson();
@@ -67,7 +69,7 @@ Nesse `return` de um anotação Javascript terá o seguinte resultado:
 	    }
 	]
 
-Essas cidades encontradas tem um Id que é o responsável em buscar a previsão do tempo pelo outro método ou seja São Paulo tem o `Id = 244`, então:
+Essas cidades encontradas tem um Id que é o responsável em buscar a previsão do tempo pelo outro função, ou seja, São Paulo tem o `Id = 244`, então:
 
 ```PHP
 $item = forecast(244);
@@ -160,3 +162,39 @@ Ele retornar esse modelo na anotação Javascript:
 	        }
 	    ]
 	}	
+
+Também pode utilizado via facade (apelidos) dessa forma:
+
+namespace:
+	
+	use Canducci\Weather\Facades\Weather;
+	use Canducci\Weather\ForecastDay;
+
+código:
+
+	Weather::cities('Sao Paulo'); 
+	Weather::forecast(244); //4 datas de previsão (padrão)
+	Weather::forecast(244, ForecastDay::Day4); //4 datas de previsão
+	Weather::forecast(244, ForecastDay::Day7); //7 datas de previsão
+
+A `Weather::cities('Sao Paulo')` retorna uma coleção de cidades com o seguinte layout:
+
+código:
+
+```PHP	
+	$items = Weather::cities('Sao Paulo');
+    foreach ($items as $key => $value) 
+    {
+        echo sprintf('<p>%s %s %s</p>',
+                $value->getId(), 
+                $value->getName(), 
+                $value->getUf());
+    }
+```
+resultado:
+
+	244 São Paulo SP
+	5019 São Paulo das Missões RS
+	5020 São Paulo de Olivença AM
+	5021 São Paulo do Potengi RN
+
