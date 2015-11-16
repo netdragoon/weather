@@ -67,4 +67,22 @@ class CollectionCities implements ICollectionCities {
     {
         return count($this->items);
     }
+
+    public function getJson()
+    {
+        return json_encode($this->getArray(), JSON_PRETTY_PRINT);
+    }
+    public function getArray()
+    {
+        $arr = array();
+        foreach ($this->items as $key => $value) 
+        {
+            array_push($arr, array(
+                    'Id' => $value->getId(),
+                    'Name' => $value->getName(),
+                    'Uf' => $value->getUf()
+                ));
+        }
+        return $arr;
+    }
 }
