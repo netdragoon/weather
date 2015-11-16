@@ -182,14 +182,14 @@ A `Weather::cities('Sao Paulo')` retorna uma coleção de cidades com o seguinte
 código:
 
 ```PHP	
-	$items = Weather::cities('Sao Paulo');
-    foreach ($items as $key => $value) 
-    {
-        echo sprintf('<p>%s %s %s</p>',
-                $value->getId(), 
-                $value->getName(), 
-                $value->getUf());
-    }
+$items = Weather::cities('Sao Paulo');
+foreach ($items as $key => $value) 
+{
+    echo sprintf('<p>%s %s %s</p>',
+            $value->getId(), 
+            $value->getName(), 
+            $value->getUf());
+}
 ```
 resultado:
 
