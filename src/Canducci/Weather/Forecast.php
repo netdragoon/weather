@@ -23,7 +23,7 @@ class Forecast implements IForecast {
         }
         else
         {
-            throw new Exception("Class inválid");
+            throw new WeatherException("Class inválid");
         }
     }
 
@@ -54,14 +54,12 @@ class Forecast implements IForecast {
 
     public function getArray()
     {
-        $forecast = $this;
         $arr = array();
-        foreach($forecast->getDates() as $date)
-        {
+        foreach ($this->getDates() as $date) {
             array_push($arr,
                 array(
                     'Date' => array(
-                        'Short' => $date->getDate()->format('d/m/Y'),
+                        'Short' => $date->getDate() != null ? $date->getDate()->format('d/m/Y') : null,
                         'Date' => $date->getDate()
                     ),
                     'Iuv' => (double)$date->getIuv(),
@@ -74,12 +72,12 @@ class Forecast implements IForecast {
                 ));
         }
         return array(
-            'Id' => $forecast->getId(),
-            'City' => $forecast->getCity(),
-            'Uf' => $forecast->getUf(),
+            'Id' => $this->getId(),
+            'City' => $this->getCity(),
+            'Uf' => $this->getUf(),
             'Update' => array(
-                'Short' => $forecast->getUpdated()->format('d/m/Y'),
-                'Date' => $forecast->getUpdated()
+                'Short' => $this->getUpdated() != null ? $this->getUpdated()->format('d/m/Y'): null,
+                'Date' => $this->getUpdated()
             ),
             'Dates' => $arr
         );

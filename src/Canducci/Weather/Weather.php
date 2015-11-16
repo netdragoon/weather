@@ -3,6 +3,7 @@
 use Canducci\Weather\Contracts\IWeather;
 use Canducci\Weather\Contracts\IWeatherClient;
 
+
 class Weather implements IWeather {
 
     protected $client = null;
@@ -19,9 +20,7 @@ class Weather implements IWeather {
     public function cities($name)
     {
         $xml = $this->client
-                ->download(str_replace("{0}",
-                    urlencode($name),
-                    self::citiesUrl));
+                ->download(str_replace("{0}", urlencode($name), self::citiesUrl));
         return new CollectionCities($xml);
     }
 
@@ -31,8 +30,7 @@ class Weather implements IWeather {
         if ($id && is_int($id))
         {
             $xml = $this->client
-                    ->download(str_replace("{0}",
-                        urlencode($id),
+                    ->download(str_replace("{0}", urlencode($id),
                         $layout == ForecastDay::Day4 ?
                                 self::city4DaysUrl :
                                 self::city7DaysUrl));
@@ -41,7 +39,7 @@ class Weather implements IWeather {
         }
         else
         {
-
+            throw new WeatherException("Data inválid");
         }
     }
 }

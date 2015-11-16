@@ -1,7 +1,6 @@
 <?php namespace Canducci\Weather;
 
 use Canducci\Weather\Contracts\ICollectionCities;
-use \Exception;
 
 class CollectionCities implements ICollectionCities {
 
@@ -18,7 +17,7 @@ class CollectionCities implements ICollectionCities {
         }
         else
         {
-            throw new Exception("Class inválid");
+            throw new WeatherException("Class inválid");
         }
     }
     protected function parser($data)
