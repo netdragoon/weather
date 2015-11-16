@@ -5,5 +5,4 @@ use \Countable;
 
 interface IBaseCollection extends Iterator, Countable
 {
-
 }

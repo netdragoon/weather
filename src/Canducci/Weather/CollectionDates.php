@@ -15,6 +15,7 @@ class CollectionDates implements ICollectionDates {
         }
         $this->parser($data);
     }
+    
     protected function parser($data)
     {
         $terms = new Terms();
@@ -32,16 +33,17 @@ class CollectionDates implements ICollectionDates {
         }
         unset($terms);
     }
+
     public function current()
     {
         return $this->items[$this->index];
     }
 
-
     public function next()
     {
         ++$this->index;
     }
+
     public function key()
     {
         return $this->index;
@@ -61,4 +63,5 @@ class CollectionDates implements ICollectionDates {
     {
         return count($this->items);
     }
+
 }

@@ -3,13 +3,8 @@
 use Canducci\Weather\Weather;
 use Illuminate\Support\ServiceProvider;
 
-class WeatherServiceProvider extends  ServiceProvider {
-
-    /**
-     * Register the service provider.
-     *
-     * @return void
-     */
+class WeatherServiceProvider extends ServiceProvider {
+    
     public function register()
     {
         $this->app->singleton('Canducci\Weather\Contracts\IWeatherClient','Canducci\Weather\WeatherClient');

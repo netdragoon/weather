@@ -20,6 +20,7 @@ class CollectionCities implements ICollectionCities {
             throw new WeatherException("Class inválid");
         }
     }
+
     protected function parser($data)
     {
         foreach($data as $key => $value)
@@ -33,6 +34,7 @@ class CollectionCities implements ICollectionCities {
             );
         }
     }
+    
     public function current()
     {
         return $this->items[$this->index];
