@@ -24,7 +24,7 @@ class CollectionDates implements ICollectionDates {
             array_push($this->items,
                 new Dates(
                     Parse::toDate((string)$value->dia),
-                    (string)$value->iuv,
+                    (double)$value->iuv,
                     (double)$value->minima,
                     (double)$value->maxima,
                     new Term((string)$value->tempo, $terms->get((string)$value->tempo)

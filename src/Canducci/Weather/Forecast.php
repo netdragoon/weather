@@ -62,7 +62,7 @@ class Forecast implements IForecast {
                         'Short' => $date->getDate() != null ? $date->getDate()->format('d/m/Y') : null,
                         'Date' => $date->getDate()
                     ),
-                    'Iuv' => (double)$date->getIuv(),
+                    'Iuv' => $date->getIuv(),
                     'Min' => $date->getMin(),
                     'Max' => $date->getMax(),
                     'Time' => array(
