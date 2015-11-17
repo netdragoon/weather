@@ -4,6 +4,11 @@
 
 [![Canducci Weather](http://i666.photobucket.com/albums/vv25/netdragoon/1447477148_Weather_zpsczx6fzr6.png)](https://packagist.org/packages/canducci/weather)
 
+[![Build Status](https://travis-ci.org/netdragoon/weather.svg?branch=master)](https://travis-ci.org/netdragoon/weather)
+[![Packagist](https://img.shields.io/packagist/dt/canducci/weather.svg?style=flat)](https://packagist.org/packages/canducci/weather)
+[![Packagist](https://img.shields.io/packagist/l/canducci/weather.svg)](https://packagist.org/packages/canducci/weather)
+[![Packagist](https://img.shields.io/packagist/v/canducci/weather.svg?label=version)](https://packagist.org/packages/canducci/weather)
+
 ## Instalação
 
 ### Configurações
