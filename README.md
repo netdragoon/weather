@@ -284,3 +284,38 @@ ___resultado:___
 	Maxima: 30
 
 	Status: pc - Pancadas de Chuva
+
+
+O pacote funciona normalmente fora do Laravel, ou seja, independente de frameworks. Para instalar crie um `composer.json` dessa forma:
+
+	{    
+	    "require": {    
+	        "canducci/weather":"0.1.*"       
+	    }
+	}
+
+Rode o procedimento de instalação `$ composer update` e após a instalação crie um arquivo `index.php` (ou qualquer de sua preferencia) e adicione o `autoload.php` da pasta `vendor` (`require 'vendor/autoload.php';`).
+
+___Para usar faça:___
+
+	$weather = new Canducci\Weather\Weather(new Canducci\Weather\WeatherClient());
+	
+	//busca de cidades
+	echo $weather->cities('Sao Paulo')->getJson();
+	//busca da previsão do tempo
+	echo $weather->forecast(244)->getJson();
+
+___Código completo___
+
+```PHP
+<?php
+	require 'vendor/autoload.php';
+	
+	$weather = new Canducci\Weather\Weather(new Canducci\Weather\WeatherClient());
+	
+	//busca de cidades
+	echo $weather->cities('Sao Paulo')->getJson();
+	//busca da previsão do tempo
+	echo $weather->forecast(244)->getJson();
+
+```
