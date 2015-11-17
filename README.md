@@ -285,6 +285,7 @@ ___resultado:___
 
 	Status: pc - Pancadas de Chuva
 
+###Como utilizar sem Frameworks.
 
 O pacote funciona normalmente fora do Laravel, ou seja, independente de frameworks. Para instalar crie um `composer.json` dessa forma:
 
