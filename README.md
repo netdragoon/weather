@@ -325,3 +325,4 @@ ___Código completo___
 	echo $weather->forecast(244)->getJson();
 
 ```
+
